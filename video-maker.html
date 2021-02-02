@@ -1,0 +1,603 @@
+<html><head>
+<title> Video Maker | AniMyself </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta charset="utf-8">
+<link rel="icon" href="/images/favicon.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;700&amp;display=swap" rel="stylesheet">
+<style>
+body {
+font-family: Overpass, Arial, Helvetica, sans-serif;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+}
+
+</style>
+<style>
+.navbar {
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#ribbon {
+  background-color: #333;
+overflow: hidden;
+}
+
+.dropdown {
+  overflow: visible;
+}
+
+.dropdown .dropbtn-left {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+#logout {
+color: white;
+background-color: #f88;
+}
+
+#logout:hover {
+background-color: #f66;
+}
+
+.add-btn {
+  background-color: #7ec492;
+}
+
+.add-btn:hover {
+  background-color: #54b475;
+}
+
+#add-dropdown {
+  background-color: #7ec492;
+}
+
+#add-dropdown:hover {
+  background-color: #54b475;
+}
+
+#char-add-list a:hover {
+  background-color: #ddd;
+}
+
+#add-char:hover #char-add-list {
+  float: left;
+  display: block;
+}
+
+.remove {
+  background-color: #b74919;
+}
+
+.remove:hover {
+  background-color: #893713;
+}
+
+#account-btn {
+font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  font-family: inherit;
+  margin: 0;
+  background-color: inherit;
+}
+
+#account-btn:hover {
+  background-color: #222;
+}
+
+#account-list a:hover {
+  background-color: #ddd;
+}
+
+#account:hover #account-list {
+  float: right;
+  display: block;
+}
+
+#upload {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  font-family: inherit;
+background-color: #7ec492;
+  margin: 0;
+}
+
+#upload:hover {
+background-color: #54b475;
+}
+
+.headnav-btn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  font-family: inherit;
+background-color: #333;
+  margin: 0;
+}
+
+.headnav-btn:hover {
+  background-color: #222;
+}
+
+#videoTitle {
+    float: none;
+    text-align: left;
+    margin: 0;
+    padding: 13px; 
+  }
+
+</style>
+<style>
+#char-nav input[type=text] {
+float:left;
+  padding: 14px 16px;
+  font-size: 16px;
+  border: none;
+}
+
+#char-nav .search-container button {
+  padding: 14px 16px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+#char-nav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  #char-nav .search-container {
+    float: none;
+  }
+  #char-nav a, #char-nav input[type=text], #char-nav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  #char-nav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+</style>
+<style>
+.tray-tab, .charSelect-tab {
+  overflow: hidden;
+  background-color: #eee;
+}
+
+.tray-tab button, .charSelect-tab button {
+background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 14px 16px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.tray-tab button:hover, .charSelect-tab button:hover {
+  background-color: #ccc;
+}
+
+.tray-tab button.active, .charSelect-tab button.active {
+  background-color: #ccc;
+}
+
+.tray-tabcontent {
+  display: none;
+}
+</style>
+<style>
+#empty-video {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #f77;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 45%;
+  top: 30px;
+  font-size: 16px;
+}
+
+#empty-video.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 4.5s;
+  animation: fadein 0.5s, fadeout 0.5s 4.5s;
+}
+
+#tray-chars {
+overflow: scroll;
+}
+
+@-webkit-keyframes fadein {
+  from {top: 0; opacity: 0;} 
+  to {top: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {top: 30px; opacity: 1;} 
+  to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
+</style>
+<style>
+#characterList {
+  overflow: scroll;
+float: left;
+  background-color: #2196F3;
+  color: #ffffff;
+  width: 100%;
+  height: 100%;
+  line-height: 100px;
+  text-align: center;
+font-size: 16px;
+  margin: 0px;
+}
+
+.charListDiv p {
+margin-top: 0em;
+  margin-bottom: 0em;
+}
+</style>
+<style>
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  font-size: 1.25 vw;
+}
+
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+.close {
+  color: black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header, .modal-footer {
+  padding: 2px 16px;
+  background-color: #e7e7e7;
+  color: black;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer-button {
+  border: none;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.modal-add {background-color: #7ec492;}
+.modal-add:hover {background-color: #54b475;}
+
+.modal-edit {background-color: #31a0f3;}
+.modal-edit:hover {background-color: #1988f3;}
+
+.modal-close {background-color: #f88;}
+.modal-close:hover {background-color: #f66;}
+</style>
+</head>
+<body>
+
+<div id="ribbon">
+  <div style="float:left">
+  <a href="index.html"><img src="/images/header-logo.svg" alt="AniMyself" class="headnav-btn" width="33%" height="auto"></a>
+  </div>
+<div>
+<input type="text" id="videoTitle" min="1" value="My First Video">
+<button onclick="emptyVideoError()" id="upload">Export</button>
+<div class="dropdown" id="account" style="float:right">
+    <button id="account-btn">Account</button>
+    <div class="dropdown-content" style="right: 0" id="account-list">
+      <h3>John Smith</h3>
+<p>smith.john@gmail.com</p>
+<hr>
+      <a href="#">My Profile</a>
+      <a href="#">My Videos</a>
+      <a href="#">Subscription</a>
+      <a href="#">Settings</a>
+      <a href="#" id="logout">Log Out</a>
+    </div>
+  </div>
+</div>
+  </div> 
+<aside height="171px" style="float:left; width:35.706%">
+<div class="tray-tab">
+<button class="tray-tablinks active" onclick="switchTrayTab(event, 'tray-chars')">Characters</button><button class="tray-tablinks" onclick="switchTrayTab(event, 'tray-bgs')">Scenes</button><button class="tray-tablinks" onclick="switchTrayTab(event, 'tray-props')">Props</button>
+</div>
+<div id="tray-chars" class="tray-tabcontent" style="display: block;">
+ <div class="navbar" id="char-nav">
+<div style="float:left">
+    <div class="dropdown" id="add-char">
+    <button class="dropbtn-left" id="add-dropdown">+</button>
+    <div class="dropdown-content" id="char-add-list">
+      <a id="openCharModal">Select</a>
+      <a>Create</a>
+    </div>
+  </div>
+  </div>
+    <div class="search-container">
+      <input type="text" id="charSearch" onkeyup="characterSearch()" placeholder="Search..." name="search">
+</div>
+</div>
+<div id="characterList" style="overflow:auto; height:373px">
+  <div class="charListDiv"><p>Adele</p></div>
+  <div class="charListDiv"><p>Agnes</p></div>
+  <div class="charListDiv"><p>Billy</p></div>
+  <div class="charListDiv"><p>Bob</p></div>
+  <div class="charListDiv"><p>Calvin</p></div>
+  <div class="charListDiv"><p>Christina</p></div>
+  <div class="charListDiv"><p>Cindy</p></div>
+</div>
+</div>
+<div id="tray-bgs" class="tray-tabcontent" style="display: none;">
+  <div class="navbar" id="char-nav">
+<div style="float:left">
+    <a class="add-btn">+</a>
+ </div>
+    <div class="search-container">
+      <input type="text" placeholder="Search..." name="search">  
+</div>
+</div>
+</div>
+<div id="tray-props" class="tray-tabcontent" style="display: none;">
+  <div class="navbar" id="char-nav">
+<div style="float:left">
+    <a class="add-btn">+</a>
+  </div>
+    <div class="search-container">
+      <input type="text" placeholder="Search..." name="search">
+</div>
+</div>
+</div></aside><canvas height="171px" style="width:64.1%; height:auto; border:1px solid #000000;" id="videoPlayer">Sorry, your browser does not support AniMyself.</canvas>
+<div id="demo" style="float:left; width:100%; height:39.84%; background-color:#888;">Timeline (1024 x 640)</div>
+<div id="empty-video" class="">You can't export a blank video!</div>
+<div style="display:none">
+<img id="testImage" src="images/assets/1-1-1 white.svg">
+</div>
+<div id="charModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" id="closeCharModal">×</span>
+      <h2>Select a Character</h2>
+    </div>
+    <div class="modal-body">
+      <p>Themes</p>
+      <div class="charSelect-tab">
+<button class="charSelect-tablinks active" onclick="switchCharSelTab(event, 'charSelect-premade')">Stock Characters</button><button class="charSelect-tablinks" onclick="switchCharSelTab(event, 'charSelect-my')">My Characters</button>
+</div>
+<div id="charSelect-premade" class="charSelect-tabcontent" style="display: block;">
+</div>
+<div id="charSelect-my" class="charSelect-tabcontent" style="display: none;">
+<p>You haven't created any characters yet. Click <a href="character-creator.html">here</a> to create your first!</p>
+</div>
+</div>
+    <div class="modal-footer">
+<button class="modal-footer-button modal-add" id="addCharModalbtn">Add</button>
+<button class="modal-footer-button modal-edit">Customize/Edit</button>
+<button class="modal-footer-button modal-close" id="closeCharModalbtn">Close</button>
+    </div>
+  </div>
+</div>
+<script>
+document.getElementById("testImage").onload = function() {
+  var c = document.getElementById("videoPlayer");
+  var ctx = c.getContext("2d");
+  var img = document.getElementById("testImage");
+  var imgData = ctx.createImageData(img.width, img.height);
+  imgData.data = img;
+  var i;
+  for (i = 0; i < imgData.data.length; i += 4) {
+    imgData.data[i] = 255;
+    imgData.data[i+1] = 0;
+    imgData.data[i+2] = 0;
+    imgData.data[i+3] = 255;
+  }
+  ctx.putImageData(imgData, 0, 0);
+ console.log(imgData.data);
+}
+</script>
+<script>
+window.onload = function() {
+var scene = {
+background:1,
+wallColor:1,
+floorColor:1,
+};
+}
+</script>
+<script>
+function switchTrayTab(evt, traytab) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tray-tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tray-tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(traytab).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+<script>
+function switchCharSelTab(evt, trayTab) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("charSelect-tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("charSelect-tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(trayTab).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+<script>
+function emptyVideoError() {
+  var x = document.getElementById("empty-video");
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+}
+</script>
+<script>
+function characterSearch() {
+    var input, charListDiv, a, i, txtValue;
+    input = document.getElementById("charSearch");
+    input = input.value.toUpperCase();
+    charListDiv = document.getElementsByClassName("charListDiv");
+    for (i = 0; i < charListDiv.length; i++) {
+        a = charListDiv[i].getElementsByTagName("p")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(input) > -1) {
+            charListDiv[i].style.display = "";
+        } else {
+            charListDiv[i].style.display = "none";
+        }
+    }
+}
+</script>
+<script>
+var modal = document.getElementById("charModal");
+var btn = document.getElementById("openCharModal");
+var span = document.getElementById("closeCharModal")[0];
+var closebtn = document.getElementById("closeCharModalbtn")[0];
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+closeCharModal.onclick = function() {
+  modal.style.display = "none";
+}
+
+closeCharModalbtn.onclick = function() {
+  modal.style.display = "none";
+}
+
+addCharModalbtn.onclick = function() {
+  modal.style.display = "none";
+var item = document.createElement("div");
+var node = document.createTextNode("Collin");
+item.appendChild(node);
+var element = document.getElementById("characterList");
+element.appendChild(item);
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+</body></html>

@@ -1,0 +1,387 @@
+<html>
+  <head>
+    <title>Tell Stories Through Animation | AniMyself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <meta charset="utf-8" />
+    <link rel="icon" href="/images/favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        padding-top: 27px;
+        font-family: Overpass, Arial, Helvetica, sans-serif;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+      }
+    </style>
+    <style>
+      .navbar {
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        width: 100%;
+      }
+
+      .navbar #make-a-video {
+        float: left;
+        font-size: 1.25vw;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        margin: 0;
+        background-color: #7ec492;
+      }
+
+      #make-a-video:hover {
+        background-color: #64a075;
+      }
+
+      .dropdown {
+        float: left;
+        overflow: hidden;
+      }
+
+      .dropdown .dropbtn {
+        font-size: 1.25vw;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 13.5px 16px;
+        background-color: #333;
+        font-family: inherit;
+        margin: 1;
+      }
+
+      .navbar a:hover,
+      .dropdown:hover .dropbtn {
+        background-color: #222;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        font-size: 1.25vw;
+      }
+
+      .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #ddd;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .dropbtn {
+        background-color: #333;
+      }
+
+      .dropbtn:hover {
+        background-color: #222;
+      }
+
+      #logout {
+        color: white;
+        background-color: #f88;
+      }
+
+      #logout:hover {
+        background-color: #fbb;
+      }
+
+      #nav-drop-list a:hover {
+        background-color: #ddd;
+      }
+
+      #nav-drop-left:hover #nav-drop-list {
+        text-align: left;
+        display: block;
+      }
+
+      #account-btn {
+        font-size: 1.25vw;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        font-family: inherit;
+        margin: 0;
+        background-color: inherit;
+      }
+
+      #account-btn:hover {
+        background-color: #222;
+      }
+
+      #account-list a:hover {
+        background-color: #ddd;
+      }
+
+      #account:hover #account-list {
+        float: right;
+        display: block;
+      }
+
+      .headnav-btn {
+        font-size: 1.25vw;
+        border: none;
+        outline: none;
+        color: white;
+        font-family: inherit;
+        background-color: #333;
+        margin: 1;
+      }
+
+      .headnav-btn:hover {
+        background-color: #222;
+      }
+    </style>
+    <style>
+      #content-body {
+        margin-left: 80px;
+        margin-right: 80px;
+      }
+
+      #content-body p {
+        font-size: 1.25vw;
+      }
+
+      #content-body li {
+        font-size: 1.25vw;
+      }
+
+      #content-body h2 {
+        font-weight: lighter;
+        font-size: 2.5vw;
+        color: #3e69b3;
+      }
+
+      #content-body h3 {
+        font-weight: lighter;
+        font-size: 1.75vw;
+        color: #f18c15;
+      }
+
+      header {
+        width: 100%;
+        color: white;
+        background-color: #f18c15;
+      }
+
+      header h1 {
+        margin-left: 80px;
+        font-size: 2.5vw;
+        padding: 50px 0px;
+      }
+
+      #content-body a {
+        text-decoration: none;
+        font-size: 1.25vw;
+        color: #3e69b3;
+      }
+
+      #content-body a:hover {
+        color: #f18c15;
+      }
+    </style>
+    <style>
+      footer {
+        color: #333;
+        background-color: #ddd;
+        padding: 10px;
+      }
+
+      #links {
+        font-size: 1.25vw;
+      }
+
+      footer a {
+        text-decoration: none;
+        color: #3e69b3;
+      }
+
+      footer a:hover {
+        color: #f18c15;
+      }
+
+      #disclaimer {
+        font-size: 1vw;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="dropdown" id="nav-drop-left">
+        <a href="index.html"
+          ><img
+            src="/images/header-logo.svg"
+            alt="AniMyself"
+            class="headnav-btn"
+            width="33%"
+            height="auto"
+        /></a>
+      </div>
+      <div class="dropdown" id="nav-drop-left">
+        <button class="dropbtn">Why AniMyself</button>
+        <div class="dropdown-content" id="nav-drop-list">
+          <a href="/online-animation.html">Online Animation</a>
+          <a href="/video-storage.html">Video Storage</a>
+          <a href="/data-protection.html">Data Protection</a>
+          <a href="/value-and-roi.html">Value and ROI</a>
+        </div>
+      </div>
+      <div class="dropdown" id="nav-drop-left">
+        <button class="dropbtn">Solutions</button>
+        <div class="dropdown-content" id="nav-drop-list">
+          <a href="/studios.html">Animation Studios</a>
+          <a href="/businesses.html">Businesses</a>
+          <a href="/web.html">Web Content</a>
+          <a href="/education.html">Education</a>
+        </div>
+      </div>
+      <div class="dropdown" id="nav-drop-left">
+        <button class="dropbtn">Resources</button>
+        <div class="dropdown-content" id="nav-drop-list">
+          <a href="/code-of-conduct.html">Code of Conduct</a>
+          <a href="/video-ratings.html">Video Ratings</a>
+          <a href="/forums/index.html">Forums</a>
+        </div>
+      </div>
+      <div class="dropdown" id="nav-drop-left">
+        <button class="dropbtn">Company</button>
+        <div class="dropdown-content" id="nav-drop-list">
+          <a href="/about-us.html">About Us</a>
+          <a href="/blog/index.html">Blog</a>
+          <a href="/contact-us.html">Contact Us</a>
+        </div>
+      </div>
+      <div class="dropdown" id="nav-drop-left">
+        <button class="dropbtn">Need Help?</button>
+        <div class="dropdown-content" id="nav-drop-list">
+          <a href="/help/index.html">Help Center</a>
+          <a href="/tutorials/index.html">Tutorials</a>
+        </div>
+      </div>
+      <div style="float: right;">
+        <div class="dropdown" id="nav-drop-left">
+          <a href="/video-maker.html" id="make-a-video">Make a Video</a>
+        </div>
+        <div class="dropdown" id="account">
+          <button id="account-btn">Account</button>
+          <div class="dropdown-content" style="right: 0;" id="account-list">
+            <h2>John Smith</h2>
+            <p>smith.john@gmail.com</p>
+            <hr />
+            <a href="#">My Profile</a>
+            <a href="#">My Videos</a>
+            <a href="#">Subscription</a>
+            <a href="#">Settings</a>
+            <a href="#" id="logout">Log Out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header><h1>Tell Stories Through Animation</h1></header>
+    <div id="content-body">
+      <p>Create dynamic animations with AniMyself in a fast and easy way.</p>
+      <h2>Video Maker Features</h2>
+      <h3>Lip Sync</h3>
+      <p>
+        Making characters speak in AniMyself is easy. You can record audio from
+        your microphone or create it with text-to-speech, then assign it to a
+        character with the click of a button.
+      </p>
+      <h3>Unlimited Creation</h3>
+      <p>
+        Say goodbye to the limited, bland assets other video makers offer.
+        AniMyself offers 50+ character designs, and X+ scenes, with various
+        appearance for your videos' needs. Characters and scenes have full
+        customization, and there is no limit to how many characters or scenes
+        you can make.
+      </p>
+      <h3>Perspective</h3>
+      <p>
+        Tired of wasting time trying to layer and resize characters and props
+        correctly? Those frustrations are gone, as AniMyself layers and resizes
+        for you to give the appearance of depth.
+      </p>
+      <h3>Character Actions</h3>
+      <p>
+        You have full customization of characters' limbs, expression, and
+        motion. They can hold props, move across the scene, and much more, in a
+        smooth, professional manner.
+      </p>
+      <h2>Share and Export</h2>
+      <p>
+        Export videos directly to the Community, or to third-party websites for
+        the world to see. You can also download your videos to your computer,
+        and anyone can share or use your videos.
+      </p>
+      <h2>Video History</h2>
+      <p>
+        Did you make a mistake? Video History allows you to view each saved
+        version of a video. This makes it easy to recover lost data or create a
+        new video based on an old version.
+      </p>
+      <h2>Security and Privacy</h2>
+      <p>
+        AniMyself has high security standards and ensures a secure animation
+        community worldwide. To protect users' data, we have comprehensive
+        security processes and controls to comply with COPPA, GDPR, CCPA, and
+        other certifications.
+      </p>
+      <a href="/data-protection.html"
+        >Learn More <i class="fas fa-angle-double-right" aria-hidden="true"></i
+      ></a>
+    </div>
+    <br />
+    <footer>
+      <center>
+        <p id="links">
+          <a href="/about-us.html">About Us</a> |
+          <a href="/terms-of-use.html">Terms of Use</a> |
+          <a href="/privacy-policy.html">Privacy Policy</a> |
+          <a href="/dmca-policy.html">DMCA Policy</a> |
+          <a href="/contact-us.html">Contact Us</a>
+        </p>
+        <p id="disclaimer">
+          Copyright © 2021 AniMyself, Inc. All rights reserved. AniMyself™ and
+          the AniMyself logo are trademarks of AniMyself, Inc. All characters,
+          scenes, props, music, sound effects, and other assets on AniMyself are
+          free to use off the website under
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA</a
+          >. All videos on AniMyself are licensed under
+          <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC</a>
+          unless otherwise stated.
+        </p>
+      </center>
+    </footer>
+  </body>
+</html>
